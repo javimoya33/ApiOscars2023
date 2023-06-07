@@ -8,6 +8,5 @@ namespace ApiPeliculas.DTOs
 
         [Range(1, 5)]
         public int Puntuacion { get; set; }
-
     }
 }
