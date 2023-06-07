@@ -16,7 +16,7 @@ namespace ApiPeliculas.Migrations
                 table: "SalasDeCine",
                 newName: "Ubicacion");
 
-            migrationBuilder.CreateTable(
+            /*migrationBuilder.CreateTable(
                 name: "AspNetRoles",
                 columns: table => new
                 {
@@ -28,7 +28,7 @@ namespace ApiPeliculas.Migrations
                 constraints: table =>
                 {
                     table.PrimaryKey("PK_AspNetRoles", x => x.Id);
-                });
+                });*/
 
             migrationBuilder.CreateTable(
                 name: "AspNetUsers",

@@ -10,10 +10,10 @@ namespace ApiPeliculas.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.InsertData(
+            /*migrationBuilder.InsertData(
                 table: "AspNetRoles",
                 columns: new[] { "Id", "ConcurrencyStamp", "Name", "NormalizedName" },
-                values: new object[] { "7b07b45d-b55a-4fbb-9a20-7d37fc35e322", "c4a7fab0-0711-4185-a520-a2cd82ca5a58", "Admin", "Admin" });
+                values: new object[] { "7b07b45d-b55a-4fbb-9a20-7d37fc35e322", "c4a7fab0-0711-4185-a520-a2cd82ca5a58", "Admin", "Admin" });*/
 
             migrationBuilder.InsertData(
                 table: "AspNetUsers",
@@ -29,10 +29,10 @@ namespace ApiPeliculas.Migrations
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
+            /*migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "7b07b45d-b55a-4fbb-9a20-7d37fc35e322");
+                keyValue: "7b07b45d-b55a-4fbb-9a20-7d37fc35e322");*/
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserClaims",

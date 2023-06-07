@@ -10,7 +10,7 @@ namespace ApiPeliculas.Migrations
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.Sql(@"BEGIN TRANSACTION;
+            /*migrationBuilder.Sql(@"BEGIN TRANSACTION;
 GO
 
 IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ConcurrencyStamp', N'Name', N'NormalizedName') AND [object_id] = OBJECT_ID(N'[AspNetRoles]'))
@@ -36,16 +36,16 @@ VALUES (1, N'http://schemas.microsoft.com/ws/2008/06/identity/claims/role', N'Ad
 IF EXISTS (SELECT * FROM [sys].[identity_columns] WHERE [name] IN (N'Id', N'ClaimType', N'ClaimValue', N'UserId') AND [object_id] = OBJECT_ID(N'[AspNetUserClaims]'))
     SET IDENTITY_INSERT [AspNetUserClaims] OFF;
 GO
-");
+");*/
         }
 
         /// <inheritdoc />
         protected override void Down(MigrationBuilder migrationBuilder)
         {
-            migrationBuilder.DeleteData(
+            /*migrationBuilder.DeleteData(
                 table: "AspNetRoles",
                 keyColumn: "Id",
-                keyValue: "7b07b45d-b55a-4fbb-9a20-7d37fc35e322");
+                keyValue: "7b07b45d-b55a-4fbb-9a20-7d37fc35e322");*/
 
             migrationBuilder.DeleteData(
                 table: "AspNetUserClaims",

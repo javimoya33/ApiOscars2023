@@ -54,7 +54,7 @@ namespace ApiPeliculas
                 PasswordHash = passwordHasher.HashPassword(null, "Javi12345?")
             };
 
-            modelBuilder.Entity<IdentityUser>()
+            /*modelBuilder.Entity<IdentityUser>()
                 .HasData(usuarioAdmin);
 
             modelBuilder.Entity<IdentityRole>()
@@ -67,7 +67,7 @@ namespace ApiPeliculas
                     ClaimType = ClaimTypes.Role,
                     UserId = usuarioAdminId,
                     ClaimValue = "Admin"
-                });
+                });*/
         }
 
         public DbSet<Genero> Generos { get; set; }
@@ -77,5 +77,7 @@ namespace ApiPeliculas
         public DbSet<PeliculasGeneros> PeliculasGeneros { get; set; }
         public DbSet<SalaDeCine> SalasDeCine { get; set; }
         public DbSet<PeliculasSalasDeCine> PeliculasSalasDeCine { get; set; }
+        public DbSet<Review> Reviews { get; set; }
+
     }
 }

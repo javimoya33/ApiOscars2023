@@ -143,6 +143,35 @@ namespace ApiPeliculas.Migrations
                     b.ToTable("PeliculasSalasDeCine");
                 });
 
+            modelBuilder.Entity("ApiPeliculas.Entidades.Review", b =>
+                {
+                    b.Property<int>("Id")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    SqlServerPropertyBuilderExtensions.UseIdentityColumn(b.Property<int>("Id"));
+
+                    b.Property<string>("Comentario")
+                        .HasColumnType("nvarchar(max)");
+
+                    b.Property<int>("PeliculaId")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Puntuacion")
+                        .HasColumnType("int");
+
+                    b.Property<string>("UsuarioId")
+                        .HasColumnType("nvarchar(450)");
+
+                    b.HasKey("Id");
+
+                    b.HasIndex("PeliculaId");
+
+                    b.HasIndex("UsuarioId");
+
+                    b.ToTable("Reviews");
+                });
+
             modelBuilder.Entity("ApiPeliculas.Entidades.SalaDeCine", b =>
                 {
                     b.Property<int>("Id")
@@ -189,15 +218,6 @@ namespace ApiPeliculas.Migrations
                         .HasFilter("[NormalizedName] IS NOT NULL");
 
                     b.ToTable("AspNetRoles", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "7b07b45d-b55a-4fbb-9a20-7d37fc35e322",
-                            ConcurrencyStamp = "c4a7fab0-0711-4185-a520-a2cd82ca5a58",
-                            Name = "Admin",
-                            NormalizedName = "Admin"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
@@ -288,24 +308,6 @@ namespace ApiPeliculas.Migrations
                         .HasFilter("[NormalizedUserName] IS NOT NULL");
 
                     b.ToTable("AspNetUsers", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = "51969e84-2adf-4149-901f-c863e06854a8",
-                            AccessFailedCount = 0,
-                            ConcurrencyStamp = "ea126836-5224-4f2f-ad57-28b6e7881368",
-                            Email = "javimoya33@gmail.com",
-                            EmailConfirmed = false,
-                            LockoutEnabled = false,
-                            NormalizedEmail = "javimoya33@gmail.com",
-                            NormalizedUserName = "javimoya33@gmail.com",
-                            PasswordHash = "AQAAAAEAACcQAAAAEE4003bzMqD+qrfNefQAJ2+A882U+multRjfjpY8BtUhnqxuewkY7qhTU6gXhYsDog==",
-                            PhoneNumberConfirmed = false,
-                            SecurityStamp = "7be79b7d-b667-492f-93fa-04892c9dad7b",
-                            TwoFactorEnabled = false,
-                            UserName = "javimoya33@gmail.com"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserClaim<string>", b =>
@@ -331,15 +333,6 @@ namespace ApiPeliculas.Migrations
                     b.HasIndex("UserId");
 
                     b.ToTable("AspNetUserClaims", (string)null);
-
-                    b.HasData(
-                        new
-                        {
-                            Id = 1,
-                            ClaimType = "http://schemas.microsoft.com/ws/2008/06/identity/claims/role",
-                            ClaimValue = "Admin",
-                            UserId = "51969e84-2adf-4149-901f-c863e06854a8"
-                        });
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
@@ -453,6 +446,23 @@ namespace ApiPeliculas.Migrations
                     b.Navigation("Pelicula");
 
                     b.Navigation("SalaDeCine");
+                });
+
+            modelBuilder.Entity("ApiPeliculas.Entidades.Review", b =>
+                {
+                    b.HasOne("ApiPeliculas.Entidades.Pelicula", "pelicula")
+                        .WithMany()
+                        .HasForeignKey("PeliculaId")
+                        .OnDelete(DeleteBehavior.Cascade)
+                        .IsRequired();
+
+                    b.HasOne("Microsoft.AspNetCore.Identity.IdentityUser", "Usuario")
+                        .WithMany()
+                        .HasForeignKey("UsuarioId");
+
+                    b.Navigation("Usuario");
+
+                    b.Navigation("pelicula");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

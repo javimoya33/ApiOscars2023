@@ -193,14 +193,14 @@ namespace ApiPeliculas.Migrations
 
                     b.ToTable("AspNetRoles", (string)null);
 
-                    b.HasData(
+                    /*b.HasData(
                         new
                         {
                             Id = "7b07b45d-b55a-4fbb-9a20-7d37fc35e322",
                             ConcurrencyStamp = "c4a7fab0-0711-4185-a520-a2cd82ca5a58",
                             Name = "Admin",
                             NormalizedName = "Admin"
-                        });
+                        });*/
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>
