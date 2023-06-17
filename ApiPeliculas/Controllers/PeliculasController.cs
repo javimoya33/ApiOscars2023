@@ -59,10 +59,10 @@ namespace ApiPeliculas.Controllers
         }
 
         [HttpGet("{id:int}", Name = "obtenerPelicula")]
-        public async Task<ActionResult<PeliculaDTO>> Get(int id)
+        public async Task<ActionResult<PeliculaDetallesDTO>> Get(int id)
         {
             var pelicula = await context.Peliculas
-                .Include(x => x.PeliculasActores).ThenInclude(x => x.actor)
+                .Include(x => x.PeliculasActores).ThenInclude(x => x.Actor)
                 .Include(x => x.PeliculasGeneros).ThenInclude(x => x.Genero)
                 .FirstOrDefaultAsync(x => x.Id == id);
 
@@ -123,7 +123,7 @@ namespace ApiPeliculas.Controllers
         public async Task<ActionResult> Post([FromForm] PeliculaCreacionDTO peliculaCreacionDTO)
         {
             var pelicula = mapper.Map<Pelicula>(peliculaCreacionDTO);
-
+        
             if (peliculaCreacionDTO.Poster != null)
             {
                 using (var memoryStream = new MemoryStream())
@@ -184,7 +184,10 @@ namespace ApiPeliculas.Controllers
 
             AsignarOrdenActores(peliculaDB);
             await context.SaveChangesAsync();
-            return NoContent();
+
+            peliculaDB = mapper.Map(peliculaCreacionDTO, peliculaDB);
+
+            return new CreatedAtRouteResult("obtenerPelicula", new { id = id }, peliculaDB);
         }
 
         [HttpDelete("{id:int}")]

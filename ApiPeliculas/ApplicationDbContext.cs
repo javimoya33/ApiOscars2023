@@ -23,6 +23,12 @@ namespace ApiPeliculas
             modelBuilder.Entity<PeliculasSalasDeCine>()
                 .HasKey(x => new { x.PeliculaId, x.SalaDeCineId });
 
+            modelBuilder.Entity<CategoriaPeliculas>()
+                .HasKey(x => new { x.CategoriaId, x.PeliculaId });
+
+            modelBuilder.Entity<CategoriasActores>()
+                .HasKey(x => new { x.CategoriaId, x.ActorId });
+
             SeedData(modelBuilder);
 
             base.OnModelCreating(modelBuilder);
@@ -78,6 +84,8 @@ namespace ApiPeliculas
         public DbSet<SalaDeCine> SalasDeCine { get; set; }
         public DbSet<PeliculasSalasDeCine> PeliculasSalasDeCine { get; set; }
         public DbSet<Review> Reviews { get; set; }
-
+        public DbSet<Categoria> Categorias { get; set; }
+        public DbSet<CategoriaPeliculas> CategoriaPeliculas { get; set; }
+        public DbSet<CategoriasActores> CategoriasActores { get; set; }
     }
 }

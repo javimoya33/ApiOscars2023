@@ -14,7 +14,7 @@ namespace ApiPeliculas.Helpers
             CreateMap<GeneroCreacionDTO, Genero>();
 
             CreateMap<Review, ReviewDTO>()
-                .ForMember(x => x.NombreUsuario, x=> x.MapFrom(y => y.Usuario.UserName));
+                .ForMember(x => x.NombreUsuario, x => x.MapFrom(y => y.Usuario.UserName));
 
             CreateMap<ReviewDTO, Review>();
             CreateMap<ReviewCreacionDTO, Review>();
@@ -46,8 +46,62 @@ namespace ApiPeliculas.Helpers
             CreateMap<Pelicula, PeliculaDetallesDTO>()
                 .ForMember(x => x.Generos, options => options.MapFrom(MapPeliculasGeneros))
                 .ForMember(x => x.Actores, options => options.MapFrom(MapPeliculasActores));
+
+            CreateMap<Categoria, CategoriaDTO>().ReverseMap();
+            CreateMap<CategoriaCreacionDTO, Categoria>()
+                .ForMember(x => x.CategoriaPeliculas, options => options.MapFrom(MapCategoriaPeliculas))
+                .ForMember(x => x.CategoriaActores, options => options.MapFrom(MapCategoriasActores));
+            CreateMap<CategoriaGanadorDTO, Categoria>().ReverseMap();
+
+            CreateMap<CategoriaPeliculaDTO, CategoriaPeliculas>().ReverseMap();
+            CreateMap<CategoriaPeliculaCreacionDTO, CategoriaPeliculas>();
+            CreateMap<Pelicula, PeliculaNominadasDTO>().ReverseMap();
+
+            CreateMap<CategoriaActorDTO, CategoriasActores>().ReverseMap();
+            CreateMap<CategoriaActorCreacionDTO, CategoriasActores>();
+            CreateMap<Actor, ActorNominadoDTO>().ReverseMap();
         }
 
+        private List<CategoriasActores> MapCategoriasActores(CategoriaCreacionDTO categoriaCreacionDTO, Categoria categoria)
+        {
+            var resultado = new List<CategoriasActores>();
+
+            if (categoriaCreacionDTO.ActorIds == null)
+            {
+                return resultado;
+            }
+
+            foreach (var id in categoriaCreacionDTO.ActorIds)
+            {
+                resultado.Add(new CategoriasActores()
+                {
+                    ActorId = id
+                }); ;
+            }
+
+            return resultado;
+        }
+
+        private List<CategoriaPeliculas> MapCategoriaPeliculas(CategoriaCreacionDTO CategoriaCreacionDTO,
+            Categoria categoria)
+        {
+            var resultado = new List<CategoriaPeliculas>();
+
+            if (CategoriaCreacionDTO.PeliculaIds == null)
+            {
+                return resultado;
+            }
+
+            foreach (var id in CategoriaCreacionDTO.PeliculaIds)
+            {
+                resultado.Add(new CategoriaPeliculas()
+                {
+                    PeliculaId = id
+                });
+            }
+
+            return resultado;
+        }
 
         private List<ActorPeliculaDetalleDTO> MapPeliculasActores(Pelicula pelicula, PeliculaDetallesDTO peliculaDetallesDTO)
         {
@@ -64,7 +118,7 @@ namespace ApiPeliculas.Helpers
                 {
                     ActorId = actorPelicula.ActorId,
                     Personaje = actorPelicula.Personaje,
-                    NombreActor = actorPelicula.actor.Nombre
+                    NombreActor = actorPelicula.Actor.Nombre
                 });
             }
 
