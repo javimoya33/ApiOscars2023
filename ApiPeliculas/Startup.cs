@@ -9,6 +9,7 @@ using Microsoft.AspNetCore.Authentication.JwtBearer;
 using Microsoft.IdentityModel.Tokens;
 using System.Text;
 using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Mvc.ViewFeatures;
 
 namespace ApiPeliculas
 {
@@ -70,6 +71,12 @@ namespace ApiPeliculas
                     options.ConstraintMap.Add("int", typeof(int));
                 }
             });
+
+            services.AddControllersWithViews();
+            services.AddRazorPages();
+
+            services.AddSingleton<ITempDataProvider, CookieTempDataProvider>();
+            services.AddSingleton<ITempDataDictionaryFactory, TempDataDictionaryFactory>();
         }
 
         public void Configure(IApplicationBuilder app, IWebHostEnvironment env)

@@ -1,0 +1,70 @@
+﻿@model ApiPeliculas.Entidades.Pelicula
+
+@{
+    ViewData["Title"] = "Película";
+}
+
+@if (Model is not null)
+{
+    <div class="fs-35 text-center pd-25 ff-montserrat-bold color-texto-1">@Model.Titulo</div>
+
+    <div class="div-peliculas" style="margin-bottom: 0px">
+        <div>
+            <table class="table-ficha-pelicula" style="padding-bottom: 10px">
+                <tr>
+                    <td class="text-center">
+                        <img src="@Model.Poster" title="@Model.Titulo" class="poster" />
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <div class="ff-montserrat color-texto-2">
+                            Estreno: <b class="ff-montserrat-bold color-texto-1">@Model.FechaEstreno.ToShortDateString()</b>
+                        </div>
+                    </td>
+                </tr>
+                <tr>
+                    <td class="text-center">
+                        <div class="div-premios">
+                            @for (var i = 0; i < Model.NumOscars; i++)
+                            {
+                                <div>
+                                    <img src="~/imagenes/oscar.png" style="width: 40px" />
+                                </div>
+                            }
+                        </div>
+                    </td>
+                </tr>
+            </table>
+        </div>
+    </div>
+
+    <div class="div-peliculas">
+        @foreach (var actor in Model.PeliculasActores)
+        {
+            <div>
+                <table class="table-ficha-pelicula">
+                    <tr>
+                        <td class="text-center color-texto-2">
+                            <img src="@actor.Actor.Foto" title="@actor.Actor.Nombre" class="poster" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center color-texto-2">
+                            <div>
+                                <b class="ff-montserrat-bold color-texto-1">@actor.Actor.Nombre</b>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div class="ff-montserrat color-texto-2">
+                                Personaje: <b class="ff-montserrat-bold color-texto-1">@actor.Personaje</b>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+}

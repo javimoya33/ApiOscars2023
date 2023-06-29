@@ -1,0 +1,78 @@
+﻿body {
+    background-image: url(../imagenes/background.jpg);
+    background-repeat: no-repeat;
+    background-position: center;
+    background-color: rgba(0, 0, 0);
+}
+
+/* ESTILO GENERAL */
+
+.d-flex {
+    display: flex;
+}
+
+.fs-14 {
+    font-size: 14pt;
+}
+
+.fs-20 {
+    font-size: 20pt;
+}
+
+.fs-35 {
+    font-size: 35pt;
+}
+
+.fs-50 {
+    font-size: 50pt;
+}
+
+.text-center {
+    text-align: center;
+}
+
+.pd-25 {
+    padding: 25px
+}
+
+.ff-montserrat {
+    font-family: 'Montserrat', cursive;
+    font-weight: 500;
+}
+
+.ff-montserrat-bold {
+    font-family: 'Montserrat-ExtraBold', sans-serif;
+    font-weight: 900;
+}
+
+.color-texto-1 {
+    color: #ba9e5f;
+}
+
+.color-texto-2 {
+    color: #ffffff;
+}
+
+.poster {
+    width: auto;
+    height: 275px
+}
+
+.div-peliculas {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin-bottom: 100px;
+    padding-bottom: 25px;
+}
+
+.table-ficha-pelicula {
+    width: 225px;
+    padding-bottom: 50px;
+}
+
+.div-premios {
+    display: flex;
+    justify-content: center;
+    margin-top: 15px;
+}

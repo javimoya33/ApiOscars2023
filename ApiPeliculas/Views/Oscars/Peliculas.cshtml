@@ -1,0 +1,70 @@
+﻿@model ApiPeliculas.DTOs.PeliculasIndexDTO
+
+@{
+    ViewData["Title"] = "Películas";
+}
+
+@if (Model is not null)
+{
+    <div class="fs-20 text-center pd-25 ff-montserrat-bold color-texto-1">Películas con más premios</div>
+
+    <div class="div-peliculas">
+        @foreach (var peliculas in Model.peliculasMasOscars)
+        {
+            <div>
+                <table class="table-ficha-pelicula">
+                    <tr>
+                        <td class="text-center">
+                            <img src="@peliculas.Poster" title="@peliculas.Titulo" class="poster" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div>
+                                <b class="ff-montserrat fs-14 color-texto-1">@peliculas.Titulo</b>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div>
+                                <b class="ff-montserrat-bold fs-35 color-texto-1">@peliculas.NumOscars</b>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+
+    <div class="fs-20 text-center pd-25 ff-montserrat-bold color-texto-1">Últimos Estrenos</div>
+
+    <div class="div-peliculas">
+        @foreach (var peliculas in Model.ultimosEstrenos)
+        {
+            <div>
+                <table>
+                    <tr>
+                        <td class="text-center">
+                            <img src="@peliculas.Poster" title="@peliculas.Titulo" class="poster" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div>
+                                <b class="ff-montserrat fs-14 color-texto-1">@peliculas.Titulo</b>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div>
+                                <b class="ff-montserrat-bold color-texto-1">@peliculas.FechaEstreno.ToShortDateString()</b>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+}

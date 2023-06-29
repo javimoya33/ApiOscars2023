@@ -1,0 +1,39 @@
+﻿@model List<ApiPeliculas.DTOs.PeliculasIndexNominadasDTO>
+
+@{
+    ViewData["Title"] = "Nominaciones";
+}
+
+@if (Model is not null)
+{
+    <div class="fs-20 text-center pd-25 ff-montserrat-bold color-texto-1">Películas con más nominaciones</div>
+
+    <div class="div-peliculas">
+        @foreach (var peliculas in Model)
+        {
+            <div>
+                <table class="table-ficha-pelicula">
+                    <tr>
+                        <td class="text-center">
+                            <img src="@peliculas.Poster" title="@peliculas.Titulo" class="poster" />
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div style="height: 50px">
+                                <b class="ff-montserrat fs-14 color-texto-1">@peliculas.Titulo</b>
+                            </div>
+                        </td>
+                    </tr>
+                    <tr>
+                        <td class="text-center">
+                            <div>
+                                <b class="ff-montserrat-bold fs-35 color-texto-1">@peliculas.Nominaciones</b>
+                            </div>
+                        </td>
+                    </tr>
+                </table>
+            </div>
+        }
+    </div>
+}

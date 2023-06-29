@@ -25,11 +25,12 @@ namespace ApiPeliculas.Controllers
         {
             var peliculasNominadas = context.Peliculas
                 .Join(context.CategoriaPeliculas, p => p.Id, cp => cp.PeliculaId, (p, cp) => new { Pelicula = p, CategoriaPelicula = cp })
-                .GroupBy(x => new { x.Pelicula.Id, x.Pelicula.Titulo })
+                .GroupBy(x => new { x.Pelicula.Id, x.Pelicula.Titulo, x.Pelicula.Poster })
                 .Select(g => new
                 {
                     Titulo = g.Key.Titulo,
-                    Nominaciones = g.Count()
+                    Nominaciones = g.Count(),
+                    Poster = g.Key.Poster
                 })
                 .OrderByDescending(x => x.Nominaciones);
 
@@ -45,7 +46,8 @@ namespace ApiPeliculas.Controllers
                 var peliculaNominadaDTO = new PeliculasIndexNominadasDTO
                 {
                     Titulo = peliculaNominada.Titulo,
-                    Nominaciones = peliculaNominada.Nominaciones
+                    Nominaciones = peliculaNominada.Nominaciones,
+                    Poster = peliculaNominada.Poster
                 };
 
                 dto.Add(peliculaNominadaDTO);

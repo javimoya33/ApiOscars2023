@@ -18,7 +18,8 @@
           "Microsoft.EntityFrameworkCore.SqlServer.NetTopologySuite": "7.0.5",
           "Microsoft.EntityFrameworkCore.Tools": "7.0.5",
           "Newtonsoft.Json": "13.0.3",
-          "System.Linq.Dynamic.Core": "1.3.2"
+          "System.Linq.Dynamic.Core": "1.3.2",
+          "bootstrap": "5.3.0"
         },
         "runtime": {
           "ApiPeliculas.dll": {}
@@ -81,6 +82,7 @@
           }
         }
       },
+      "bootstrap/5.3.0": {},
       "Humanizer.Core/2.14.1": {
         "runtime": {
           "lib/net6.0/Humanizer.dll": {
@@ -956,6 +958,13 @@
       "sha512": "sha512-EycyMsb6rD2PK9P0SyibFfEhvWWttdrYhyPF4f41uzdB/44yQlV+2Wehxyg489Rj6gbPvSPgbKq0xsHJBhipZA==",
       "path": "azure.identity/1.6.0",
       "hashPath": "azure.identity.1.6.0.nupkg.sha512"
+    },
+    "bootstrap/5.3.0": {
+      "type": "package",
+      "serviceable": true,
+      "sha512": "sha512-Glct0CeNsN5ETcAmV4IsIGa8VEvnWphT4Wb+IaF7/4KAMaZjxpr0eZ8Uf6H/gWKPcUB2p235/3alyhmYBbU6FQ==",
+      "path": "bootstrap/5.3.0",
+      "hashPath": "bootstrap.5.3.0.nupkg.sha512"
     },
     "Humanizer.Core/2.14.1": {
       "type": "package",

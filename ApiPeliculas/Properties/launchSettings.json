@@ -3,7 +3,7 @@
     "ApiPeliculas": {
       "commandName": "Project",
       "launchBrowser": true,
-      "launchUrl": "api/generos",
+      "launchUrl": "api/oscars/portada",
       "environmentVariables": {
         "ASPNETCORE_ENVIRONMENT": "Development"
       },

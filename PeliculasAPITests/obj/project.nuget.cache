@@ -1,6 +1,6 @@
 {
   "version": 2,
-  "dgSpecHash": "yowG79QHKvQ9cLVMyDVA5IctR4+5vbJEjmassEMLVhMC/z3RrYtVFdRh1FacY3iB7d+0+Lf10E/v6P3bs0zVKQ==",
+  "dgSpecHash": "PhHYdIBxx6kDGdQyk/jaNtQmWyApL8biXmwDE2waBeav7j2ipKALybNwYsCKJCwpVmf6hBYS5Ta6w060rMNPcQ==",
   "success": true,
   "projectFilePath": "C:\\Users\\34656\\source\\repos\\ApiPeliculas\\PeliculasAPITests\\PeliculasAPITests.csproj",
   "expectedPackageFiles": [
@@ -8,6 +8,7 @@
     "C:\\Users\\34656\\.nuget\\packages\\automapper.extensions.microsoft.dependencyinjection\\12.0.1\\automapper.extensions.microsoft.dependencyinjection.12.0.1.nupkg.sha512",
     "C:\\Users\\34656\\.nuget\\packages\\azure.core\\1.24.0\\azure.core.1.24.0.nupkg.sha512",
     "C:\\Users\\34656\\.nuget\\packages\\azure.identity\\1.6.0\\azure.identity.1.6.0.nupkg.sha512",
+    "C:\\Users\\34656\\.nuget\\packages\\bootstrap\\5.3.0\\bootstrap.5.3.0.nupkg.sha512",
     "C:\\Users\\34656\\.nuget\\packages\\castle.core\\5.1.1\\castle.core.5.1.1.nupkg.sha512",
     "C:\\Users\\34656\\.nuget\\packages\\coverlet.collector\\6.0.0\\coverlet.collector.6.0.0.nupkg.sha512",
     "C:\\Users\\34656\\.nuget\\packages\\microsoft.aspnetcore.authentication.abstractions\\2.2.0\\microsoft.aspnetcore.authentication.abstractions.2.2.0.nupkg.sha512",
